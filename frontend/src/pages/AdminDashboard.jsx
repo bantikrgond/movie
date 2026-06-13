@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const API_BASE = window.location.hostname === 'localhost' 
+    ? 'http://localhost:5000/api' 
+    : window.location.origin + '/_/backend/api';
+
 const AdminDashboard = () => {
     const [movies, setMovies] = useState([]);
     const [stats, setStats] = useState({
@@ -31,8 +35,8 @@ const AdminDashboard = () => {
         try {
             // Try fetching from real backend
             const [moviesRes, statsRes] = await Promise.all([
-                axios.get('http://localhost:5000/api/movies').catch(() => null),
-                axios.get('http://localhost:5000/api/movies/admin/stats').catch(() => null)
+                axios.get(`${API_BASE}/movies`).catch(() => null),
+                axios.get(`${API_BASE}/movies/admin/stats`).catch(() => null)
             ]);
 
             if (moviesRes && moviesRes.data && moviesRes.data.length > 0) {
@@ -98,10 +102,10 @@ const AdminDashboard = () => {
         try {
             if (editingId && typeof editingId === 'string' && editingId.length > 5) {
                 // Real DB update
-                await axios.put(`http://localhost:5000/api/movies/${editingId}`, formData).catch(() => null);
+                await axios.put(`${API_BASE}/movies/${editingId}`, formData).catch(() => null);
             } else if (!editingId) {
                 // Real DB create
-                await axios.post('http://localhost:5000/api/movies', formData).catch(() => null);
+                await axios.post(`${API_BASE}/movies`, formData).catch(() => null);
             }
 
             // Update local state smoothly
@@ -131,7 +135,7 @@ const AdminDashboard = () => {
         if (window.confirm("Are you sure you want to delete this movie?")) {
             try {
                 if (typeof id === 'string' && id.length > 5) {
-                    await axios.delete(`http://localhost:5000/api/movies/${id}`).catch(() => null);
+                    await axios.delete(`${API_BASE}/movies/${id}`).catch(() => null);
                 }
                 const updatedMovies = movies.filter(m => m._id !== id && m.title !== id);
                 setMovies(updatedMovies);
