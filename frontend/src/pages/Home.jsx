@@ -364,12 +364,12 @@ const Home = () => {
                         {/* Theater Card 1 */}
                         <div className="theater-card glass-card" style={{ borderRadius: '16px', overflow: 'hidden', background: 'var(--bg-card)', border: '1px solid var(--glass-border)' }}>
                             <div style={{ position: 'relative', height: '200px' }}>
-                                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop" alt="Starlight IMAX" style={{ width: '100%', height: '100%', object-fit: 'cover' }} />
+                                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop" alt="Starlight IMAX" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 <div style={{ position: 'absolute', top: '1rem', left: '1rem', background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(5px)', padding: '0.3rem 0.8rem', borderRadius: '20px', border: '1px solid var(--neon-blue)', fontSize: '0.8rem', fontWeight: 700, color: 'var(--neon-blue)' }}>IMAX WITH LASER</div>
                             </div>
                             <div style={{ padding: '1.5rem' }}>
                                 <h3 style={{ fontSize: '1.3rem', marginBottom: '0.3rem', color: 'white' }}>Starlight IMAX Cinema</h3>
-                                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1rem' }}><i class="ri-map-pin-line" style={{ color: 'var(--neon-pink)' }}></i> Downtown Core, Avenue 4</p>
+                                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1rem' }}><i className="ri-map-pin-line" style={{ color: 'var(--neon-pink)' }}></i> Downtown Core, Avenue 4</p>
                                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
                                     <span style={{ background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.6rem', borderRadius: '4px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Dolby Atmos</span>
                                     <span style={{ background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.6rem', borderRadius: '4px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>4K Laser</span>
@@ -382,12 +382,12 @@ const Home = () => {
                         {/* Theater Card 2 */}
                         <div className="theater-card glass-card" style={{ borderRadius: '16px', overflow: 'hidden', background: 'var(--bg-card)', border: '1px solid var(--glass-border)' }}>
                             <div style={{ position: 'relative', height: '200px' }}>
-                                <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=2070&auto=format&fit=crop" alt="Neon Multiplex" style={{ width: '100%', height: '100%', object-fit: 'cover' }} />
+                                <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=2070&auto=format&fit=crop" alt="Neon Multiplex" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 <div style={{ position: 'absolute', top: '1rem', left: '1rem', background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(5px)', padding: '0.3rem 0.8rem', borderRadius: '20px', border: '1px solid var(--neon-pink)', fontSize: '0.8rem', fontWeight: 700, color: 'var(--neon-pink)' }}>4DX IMMERSIVE</div>
                             </div>
                             <div style={{ padding: '1.5rem' }}>
                                 <h3 style={{ fontSize: '1.3rem', marginBottom: '0.3rem', color: 'white' }}>Neon Multiplex & Lounge</h3>
-                                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1rem' }}><i class="ri-map-pin-line" style={{ color: 'var(--neon-pink)' }}></i> Cyber District, Sector 7</p>
+                                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1rem' }}><i className="ri-map-pin-line" style={{ color: 'var(--neon-pink)' }}></i> Cyber District, Sector 7</p>
                                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
                                     <span style={{ background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.6rem', borderRadius: '4px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Motion Seats</span>
                                     <span style={{ background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.6rem', borderRadius: '4px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>D-Box</span>
@@ -400,12 +400,12 @@ const Home = () => {
                         {/* Theater Card 3 */}
                         <div className="theater-card glass-card" style={{ borderRadius: '16px', overflow: 'hidden', background: 'var(--bg-card)', border: '1px solid var(--glass-border)' }}>
                             <div style={{ position: 'relative', height: '200px' }}>
-                                <img src="https://images.unsplash.com/photo-1595769816263-9b910be24d5f?q=80&w=2079&auto=format&fit=crop" alt="Aurora Luxe" style={{ width: '100%', height: '100%', object-fit: 'cover' }} />
+                                <img src="https://images.unsplash.com/photo-1595769816263-9b910be24d5f?q=80&w=2079&auto=format&fit=crop" alt="Aurora Luxe" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 <div style={{ position: 'absolute', top: '1rem', left: '1rem', background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(5px)', padding: '0.3rem 0.8rem', borderRadius: '20px', border: '1px solid var(--neon-purple)', fontSize: '0.8rem', fontWeight: 700, color: '#d946ef' }}>VIP PREMIUM</div>
                             </div>
                             <div style={{ padding: '1.5rem' }}>
                                 <h3 style={{ fontSize: '1.3rem', marginBottom: '0.3rem', color: 'white' }}>Aurora Luxe Cinema</h3>
-                                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1rem' }}><i class="ri-map-pin-line" style={{ color: 'var(--neon-pink)' }}></i> Heights Boulevard, Galleria</p>
+                                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1rem' }}><i className="ri-map-pin-line" style={{ color: 'var(--neon-pink)' }}></i> Heights Boulevard, Galleria</p>
                                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
                                     <span style={{ background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.6rem', borderRadius: '4px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Plush Recliners</span>
                                     <span style={{ background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.6rem', borderRadius: '4px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Private Bar</span>
@@ -445,7 +445,7 @@ const Home = () => {
                             
                             <div className="legend">
                                 <div className="legend-item"><div className="seat-legend available"></div> Available</div>
-                                <div className="legend-item"><div class="seat-legend selected"></div> Selected</div>
+                                <div className="legend-item"><div className="seat-legend selected"></div> Selected</div>
                                 <div className="legend-item"><div className="seat-legend sold"></div> Sold</div>
                             </div>
 
