@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TICKETY | Cinematic Movie Booking</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="logo">TICKETY<span>.</span></div>
+        <nav class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#movies">Movies</a>
+            <a href="#theaters">Theaters</a>
+        </nav>
+        <div class="nav-actions">
+            <div class="search-box">
+                <i class="ri-search-line"></i>
+                <input type="text" placeholder="Search movies...">
+            </div>
+            <button class="btn-login"><i class="ri-user-line"></i> Sign In</button>
+            <button class="mobile-menu-btn"><i class="ri-menu-3-line"></i></button>
+        </div>
+    </header>
+
+    <!-- User View -->
+    <div id="user-view">
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2070&auto=format&fit=crop" alt="Hero Movie">
+            <div class="hero-overlay"></div>
+            <div class="hero-gradient-bottom"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="badge">Trending Now</div>
+            <h1 class="hero-title">CYBER<span class="text-gradient">PUNK</span><br>2077</h1>
+            <div class="movie-meta">
+                <span class="meta-item"><i class="ri-star-fill text-yellow"></i> 4.8</span>
+                <span class="meta-item">Action, Sci-Fi</span>
+                <span class="meta-item">2h 45m</span>
+                <span class="rating">R</span>
+            </div>
+            <p class="hero-desc">Experience the ultimate futuristic thrill ride. In a world controlled by mega-corporations, one rogue hacker seeks to dismantle the system from within.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="document.getElementById('booking-section').scrollIntoView({behavior: 'smooth'})">
+                    <i class="ri-ticket-2-line"></i> Book Tickets
+                </button>
+                <button class="btn-secondary">
+                    <i class="ri-play-circle-line"></i> Watch Trailer
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movies Slider Section -->
+    <section class="section" id="movies">
+        <div class="section-header">
+            <h2>Now Showing</h2>
+            <div class="filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Action</button>
+                <button class="filter-btn">Sci-Fi</button>
+                <button class="filter-btn">Horror</button>
+                <button class="filter-btn">Comedy</button>
+            </div>
+        </div>
+
+        <div class="movie-grid" id="dynamic-movie-grid">
+            <!-- Movie Card 1 -->
+            <div class="movie-card">
+                <div class="poster-wrapper">
+                    <img src="https://images.unsplash.com/photo-1611416517780-eff3a13b0359?q=80&w=1949&auto=format&fit=crop" alt="The Dark Web">
+                    <div class="poster-overlay">
+                        <button class="btn-glass btn-book" onclick="document.getElementById('booking-section').scrollIntoView({behavior: 'smooth'})">Book Now</button>
+                    </div>
+                    <div class="imdb-rating"><i class="ri-star-fill"></i> 8.5</div>
+                </div>
+                <div class="movie-info">
+                    <h3>The Dark Web</h3>
+                    <p>Thriller, Action</p>
+                </div>
+            </div>
+
+            <!-- Movie Card 2 -->
+            <div class="movie-card">
+                <div class="poster-wrapper">
+                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1925&auto=format&fit=crop" alt="Interstellar Journey">
+                    <div class="poster-overlay">
+                        <button class="btn-glass btn-book" onclick="document.getElementById('booking-section').scrollIntoView({behavior: 'smooth'})">Book Now</button>
+                    </div>
+                    <div class="imdb-rating"><i class="ri-star-fill"></i> 9.1</div>
+                </div>
+                <div class="movie-info">
+                    <h3>Interstellar Journey</h3>
+                    <p>Sci-Fi, Adventure</p>
+                </div>
+            </div>
+
+            <!-- Movie Card 3 -->
+            <div class="movie-card">
+                <div class="poster-wrapper">
+                    <img src="https://images.unsplash.com/photo-1596727147705-61a532a659bd?q=80&w=1974&auto=format&fit=crop" alt="Neon City">
+                    <div class="poster-overlay">
+                        <button class="btn-glass btn-book" onclick="document.getElementById('booking-section').scrollIntoView({behavior: 'smooth'})">Book Now</button>
+                    </div>
+                    <div class="imdb-rating"><i class="ri-star-fill"></i> 7.8</div>
+                </div>
+                <div class="movie-info">
+                    <h3>Neon City</h3>
+                    <p>Action, Cyberpunk</p>
+                </div>
+            </div>
+
+            <!-- Movie Card 4 -->
+            <div class="movie-card">
+                <div class="poster-wrapper">
+                    <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=1974&auto=format&fit=crop" alt="Cosmic Wars">
+                    <div class="poster-overlay">
+                        <button class="btn-glass btn-book" onclick="document.getElementById('booking-section').scrollIntoView({behavior: 'smooth'})">Book Now</button>
+                    </div>
+                    <div class="imdb-rating"><i class="ri-star-fill"></i> 8.2</div>
+                </div>
+                <div class="movie-info">
+                    <h3>Cosmic Wars</h3>
+                    <p>Sci-Fi, Action</p>
+                </div>
+            </div>
+            <!-- Movie Card 5 -->
+            <div class="movie-card">
+                <div class="poster-wrapper">
+                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1994&auto=format&fit=crop" alt="Virtual Reality">
+                    <div class="poster-overlay">
+                        <button class="btn-glass btn-book" onclick="document.getElementById('booking-section').scrollIntoView({behavior: 'smooth'})">Book Now</button>
+                    </div>
+                    <div class="imdb-rating"><i class="ri-star-fill"></i> 8.7</div>
+                </div>
+                <div class="movie-info">
+                    <h3>Virtual Reality</h3>
+                    <p>Sci-Fi, Thriller</p>
+                </div>
+            </div>
+
+            <!-- Movie Card 6 -->
+            <div class="movie-card">
+                <div class="poster-wrapper">
+                    <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop" alt="The Last Reel">
+                    <div class="poster-overlay">
+                        <button class="btn-glass btn-book" onclick="document.getElementById('booking-section').scrollIntoView({behavior: 'smooth'})">Book Now</button>
+                    </div>
+                    <div class="imdb-rating"><i class="ri-star-fill"></i> 7.9</div>
+                </div>
+                <div class="movie-info">
+                    <h3>The Last Reel</h3>
+                    <p>Drama, Mystery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Theaters Section -->
+    <section class="section" id="theaters">
+        <div class="section-header">
+            <h2>Partner Theaters & Experiences</h2>
+            <p class="text-muted" style="max-width: 600px; margin-top: 0.5rem;">Experience cutting-edge cinematic sound and state-of-the-art projection in our curated partner multiplexes.</p>
+        </div>
+
+        <div class="theater-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem;">
+            <!-- Theater Card 1 -->
+            <div class="theater-card glass-card" style="border-radius: 16px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--glass-border); transition: transform 0.3s ease;">
+                <div style="position: relative; height: 200px;">
+                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop" alt="Starlight IMAX" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div style="position: absolute; top: 1rem; left: 1rem; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid var(--neon-blue); font-size: 0.8rem; font-weight: 700; color: var(--neon-blue);">IMAX WITH LASER</div>
+                </div>
+                <div style="padding: 1.5rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 0.3rem; color: white;">Starlight IMAX Cinema</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;"><i class="ri-map-pin-line" style="color: var(--neon-pink);"></i> Downtown Core, Avenue 4</p>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; color: var(--text-secondary);">Dolby Atmos</span>
+                        <span style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; color: var(--text-secondary);">4K Laser</span>
+                        <span style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; color: var(--text-secondary);">Recliners</span>
+                    </div>
+                    <button class="btn-secondary w-100" onclick="document.getElementById('booking-section').scrollIntoView({behavior: 'smooth'})" style="justify-content: center; font-size: 0.9rem; padding: 0.6rem;">Explore Showtimes</button>
+                </div>
+            </div>
+
+            <!-- Theater Card 2 -->
+            <div class="theater-card glass-card" style="border-radius: 16px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--glass-border); transition: transform 0.3s ease;">
+                <div style="position: relative; height: 200px;">
+                    <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=2070&auto=format&fit=crop" alt="Neon Multiplex" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div style="position: absolute; top: 1rem; left: 1rem; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid var(--neon-pink); font-size: 0.8rem; font-weight: 700; color: var(--neon-pink);">4DX IMMERSIVE</div>
+                </div>
+                <div style="padding: 1.5rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 0.3rem; color: white;">Neon Multiplex & Lounge</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;"><i class="ri-map-pin-line" style="color: var(--neon-pink);"></i> Cyber District, Sector 7</p>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; color: var(--text-secondary);">Motion Seats</span>
+                        <span style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; color: var(--text-secondary);">D-Box</span>
+                        <span style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; color: var(--text-secondary);">VIP Dine-in</span>
+                    </div>
+                    <button class="btn-secondary w-100" onclick="document.getElementById('booking-section').scrollIntoView({behavior: 'smooth'})" style="justify-content: center; font-size: 0.9rem; padding: 0.6rem;">Explore Showtimes</button>
+                </div>
+            </div>
+
+            <!-- Theater Card 3 -->
+            <div class="theater-card glass-card" style="border-radius: 16px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--glass-border); transition: transform 0.3s ease;">
+                <div style="position: relative; height: 200px;">
+                    <img src="https://images.unsplash.com/photo-1595769816263-9b910be24d5f?q=80&w=2079&auto=format&fit=crop" alt="Aurora Luxe" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div style="position: absolute; top: 1rem; left: 1rem; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid var(--neon-purple); font-size: 0.8rem; font-weight: 700; color: #d946ef;">VIP PREMIUM</div>
+                </div>
+                <div style="padding: 1.5rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 0.3rem; color: white;">Aurora Luxe Cinema</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;"><i class="ri-map-pin-line" style="color: var(--neon-pink);"></i> Heights Boulevard, Galleria</p>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; color: var(--text-secondary);">Plush Recliners</span>
+                        <span style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; color: var(--text-secondary);">Private Bar</span>
+                        <span style="background: rgba(255,255,255,0.05); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; color: var(--text-secondary);">THX Certified</span>
+                    </div>
+                    <button class="btn-secondary w-100" onclick="document.getElementById('booking-section').scrollIntoView({behavior: 'smooth'})" style="justify-content: center; font-size: 0.9rem; padding: 0.6rem;">Explore Showtimes</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seat Booking Section (Mockup) -->
+    <section class="section booking-section" id="booking-section">
+        <div class="booking-container">
+            <div class="booking-details">
+                <h2>Seat Selection</h2>
+                <h3 class="selected-movie-title">CYBERPUNK: 2077</h3>
+                
+                <div class="datetime-selectors">
+                    <div class="selector-group">
+                        <label>Date</label>
+                        <select class="custom-select">
+                            <option>Today, 14 Oct</option>
+                            <option>Tomorrow, 15 Oct</option>
+                            <option>Fri, 16 Oct</option>
+                        </select>
+                    </div>
+                    <div class="selector-group">
+                        <label>Time & Format</label>
+                        <select class="custom-select">
+                            <option>18:30 (IMAX 3D)</option>
+                            <option>21:00 (Standard)</option>
+                            <option>23:30 (Dolby Atmos)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="legend">
+                    <div class="legend-item"><div class="seat-legend available"></div> Available</div>
+                    <div class="legend-item"><div class="seat-legend selected"></div> Selected</div>
+                    <div class="legend-item"><div class="seat-legend sold"></div> Sold</div>
+                </div>
+
+                <div class="price-summary">
+                    <div class="flex-between">
+                        <span>Selected Seats:</span>
+                        <span id="seat-count" class="highlight-text">0</span>
+                    </div>
+                    <div class="flex-between">
+                        <span>Price per Seat:</span>
+                        <span>$15.00</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="flex-between total">
+                        <span>Total Price:</span>
+                        <span id="total-price" class="highlight-text">$0.00</span>
+                    </div>
+                    <button class="btn-primary w-100" id="checkout-btn" disabled>
+                        <i class="ri-secure-payment-line"></i> Proceed to Payment
+                    </button>
+                </div>
+            </div>
+
+            <div class="seat-map-wrapper">
+                <div class="screen-container">
+                    <div class="screen-glow"></div>
+                    <div class="screen-curve"></div>
+                    <span class="screen-text">SCREEN</span>
+                </div>
+                
+                <div class="seat-map" id="seat-map">
+                    <!-- Seats will be injected by script.js -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div>
+    <!-- End User View -->
+
+    <!-- Admin Dashboard View -->
+    <div id="admin-view" style="display: none; padding-top: 80px; min-height: 100vh;">
+        <div class="admin-layout">
+            <aside class="admin-sidebar">
+                <div class="admin-profile">
+                    <img src="https://ui-avatars.com/api/?name=Banti+Gond&background=f9004d&color=fff" alt="Banti Gond" style="width: 50px; border-radius: 50%;">
+                    <div>
+                        <h4 style="margin: 0; font-size: 1rem; color: white;">Banti Kr Gond</h4>
+                        <p style="margin: 0; font-size: 0.75rem; color: var(--neon-pink);">prasadbanti2004@gmail.com</p>
+                    </div>
+                </div>
+                <nav class="admin-nav">
+                    <a href="#" class="active"><i class="ri-dashboard-line"></i> Dashboard</a>
+                    <a href="#"><i class="ri-film-line"></i> Manage Movies</a>
+                    <a href="#"><i class="ri-ticket-2-line"></i> Bookings</a>
+                    <a href="#"><i class="ri-user-settings-line"></i> Users</a>
+                    <a href="#"><i class="ri-settings-4-line"></i> Settings</a>
+                    <a href="#" id="back-to-site"><i class="ri-arrow-left-line"></i> Back to Website</a>
+                </nav>
+            </aside>
+            
+            <main class="admin-main">
+                <div class="admin-header-bar">
+                    <h2>Dashboard Overview</h2>
+                    <button class="btn-primary" id="add-movie-btn" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;"><i class="ri-add-line"></i> Add New Movie</button>
+                </div>
+                
+                <div class="admin-preview" style="margin-top: 2rem;">
+                    <div class="stat-card">
+                        <div class="stat-icon pink-glow"><i class="ri-money-dollar-circle-line"></i></div>
+                        <div class="stat-info">
+                            <h4>Total Revenue</h4>
+                            <h2>$45,231</h2>
+                            <span class="trend positive"><i class="ri-arrow-up-line"></i> 12.5%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue-glow"><i class="ri-ticket-line"></i></div>
+                        <div class="stat-info">
+                            <h4>Tickets Sold</h4>
+                            <h2>1,245</h2>
+                            <span class="trend positive"><i class="ri-arrow-up-line"></i> 8.2%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple-glow"><i class="ri-film-line"></i></div>
+                        <div class="stat-info">
+                            <h4>Active Movies</h4>
+                            <h2>12</h2>
+                            <span class="trend neutral"><i class="ri-subtract-line"></i> 0.0%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange-glow"><i class="ri-user-star-line"></i></div>
+                        <div class="stat-info">
+                            <h4>New Users</h4>
+                            <h2>342</h2>
+                            <span class="trend positive"><i class="ri-arrow-up-line"></i> 24.1%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-table-container">
+                    <h3>Current Movies</h3>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Movie</th>
+                                <th>Genre</th>
+                                <th>Rating</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-movie-list">
+                            <tr>
+                                <td>
+                                    <div class="table-movie">
+                                        <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2070&auto=format&fit=crop" alt="Cyberpunk">
+                                        <span>Cyberpunk 2077</span>
+                                    </div>
+                                </td>
+                                <td>Action, Sci-Fi</td>
+                                <td><i class="ri-star-fill text-yellow"></i> 4.8</td>
+                                <td><span class="status active">Showing</span></td>
+                                <td>
+                                    <button class="action-btn edit"><i class="ri-edit-line"></i></button>
+                                    <button class="action-btn delete"><i class="ri-delete-bin-line"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="table-movie">
+                                        <img src="https://images.unsplash.com/photo-1611416517780-eff3a13b0359?q=80&w=1949&auto=format&fit=crop" alt="Dark Web">
+                                        <span>The Dark Web</span>
+                                    </div>
+                                </td>
+                                <td>Thriller, Action</td>
+                                <td><i class="ri-star-fill text-yellow"></i> 8.5</td>
+                                <td><span class="status active">Showing</span></td>
+                                <td>
+                                    <button class="action-btn edit"><i class="ri-edit-line"></i></button>
+                                    <button class="action-btn delete"><i class="ri-delete-bin-line"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="table-movie">
+                                        <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=1974&auto=format&fit=crop" alt="Cosmic Wars">
+                                        <span>Cosmic Wars</span>
+                                    </div>
+                                </td>
+                                <td>Sci-Fi, Action</td>
+                                <td><i class="ri-star-fill text-yellow"></i> 8.2</td>
+                                <td><span class="status inactive">Upcoming</span></td>
+                                <td>
+                                    <button class="action-btn edit"><i class="ri-edit-line"></i></button>
+                                    <button class="action-btn delete"><i class="ri-delete-bin-line"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+    <!-- End Admin View -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">TICKETY<span>.</span></div>
+                <p>The premium movie ticket booking experience. Futuristic, fast, and seamless. Next-generation cinematic journeys start here.</p>
+                <div class="socials">
+                    <a href="#"><i class="ri-instagram-line"></i></a>
+                    <a href="#"><i class="ri-twitter-x-line"></i></a>
+                    <a href="#"><i class="ri-facebook-circle-fill"></i></a>
+                    <a href="#"><i class="ri-youtube-fill"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <a href="#">Movies</a>
+                <a href="#">Theaters</a>
+                <a href="#">Events</a>
+                <a href="#">Offers</a>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Support</h4>
+                <a href="#">Help Center</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Us</a>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h4>Subscribe to Newsletter</h4>
+                <p>Get the latest movie updates and exclusive offers directly in your inbox.</p>
+                <div class="newsletter-input-group">
+                    <input type="email" placeholder="Enter your email">
+                    <button><i class="ri-send-plane-fill"></i></button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 TICKETY. All rights reserved.</p>
+            <p>Designed with precision.</p>
+        </div>
+    </footer>
+
+    <!-- Sign In Modal -->
+    <div class="modal-overlay" id="signin-modal">
+        <div class="modal-content glass-card">
+            <button class="close-modal" id="close-modal"><i class="ri-close-line"></i></button>
+            <div class="modal-header">
+                <h2>Welcome Back</h2>
+                <p>Sign in to continue your cinematic journey</p>
+            </div>
+            <form class="signin-form" onsubmit="event.preventDefault();">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="signin-email" value="prasadbanti2004@gmail.com" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" value="superadmin123" placeholder="Enter your password" required>
+                </div>
+                <div class="flex-between" style="margin-bottom: 1.5rem; font-size: 0.85rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#" class="text-gradient" style="text-decoration: none;">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn-primary w-100" style="justify-content: center;">Sign In</button>
+            </form>
+            <div class="modal-footer">
+                <p>Don't have an account? <a href="#" class="text-gradient" style="text-decoration: none; font-weight: 600;">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Movie Modal (Add / Edit) -->
+    <div class="modal-overlay" id="movie-modal">
+        <div class="modal-content glass-card" style="max-width: 500px;">
+            <button class="close-modal" id="close-movie-modal"><i class="ri-close-line"></i></button>
+            <div class="modal-header">
+                <h2 id="movie-modal-title">Add New Movie</h2>
+                <p>Fill in the details to list a new cinematic experience</p>
+            </div>
+            <form class="movie-form" id="movie-form" onsubmit="event.preventDefault();">
+                <input type="hidden" id="edit-movie-index">
+                <div class="input-group">
+                    <label>Movie Title</label>
+                    <input type="text" id="movie-title" placeholder="e.g. Cyberpunk 2077" required>
+                </div>
+                <div class="input-group">
+                    <label>Poster Image URL</label>
+                    <input type="url" id="movie-image" placeholder="https://..." required>
+                </div>
+                <div class="input-group">
+                    <label>Genre</label>
+                    <input type="text" id="movie-genre" placeholder="e.g. Action, Sci-Fi" required>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <div class="input-group" style="flex: 1;">
+                        <label>Rating</label>
+                        <input type="text" id="movie-rating" placeholder="e.g. 8.5" required>
+                    </div>
+                    <div class="input-group" style="flex: 1;">
+                        <label>Status</label>
+                        <select id="movie-status" class="custom-select" style="padding: 0.8rem 1rem; border-radius: 8px;">
+                            <option value="Showing">Showing</option>
+                            <option value="Upcoming">Upcoming</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary w-100" style="justify-content: center; margin-top: 1rem;">Save Movie</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- External JS -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TICKETY | Admin Portal</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: var(--bg-dark);">
+
+    <!-- Standalone Admin Dashboard View -->
+    <div id="admin-view" style="padding-top: 20px; min-height: 100vh;">
+        <div class="admin-layout" style="border-top: none;">
+            <aside class="admin-sidebar">
+                <div class="logo" style="padding: 0 1rem; margin-bottom: 1rem;">TICKETY<span>.</span> <span style="font-size: 0.8rem; letter-spacing: 0; color: var(--text-secondary); display: block;">ADMIN PORTAL</span></div>
+                <div class="admin-profile" style="margin-bottom: 1rem;">
+                    <img src="https://ui-avatars.com/api/?name=Banti+Gond&background=f9004d&color=fff" alt="Banti Gond" style="width: 50px; border-radius: 50%;">
+                    <div>
+                        <h4 style="margin: 0; font-size: 1rem; color: white;">Banti Kr Gond</h4>
+                        <p style="margin: 0; font-size: 0.75rem; color: var(--neon-pink);">prasadbanti2004@gmail.com</p>
+                    </div>
+                </div>
+                <nav class="admin-nav">
+                    <a href="#" class="active"><i class="ri-dashboard-line"></i> Dashboard</a>
+                    <a href="#"><i class="ri-film-line"></i> Manage Movies</a>
+                    <a href="#"><i class="ri-ticket-2-line"></i> Bookings</a>
+                    <a href="#"><i class="ri-user-settings-line"></i> Users</a>
+                    <a href="index.html"><i class="ri-arrow-left-line"></i> Back to Website</a>
+                </nav>
+            </aside>
+            
+            <main class="admin-main">
+                <div class="admin-header-bar">
+                    <h2 style="color: white;">Dashboard Overview</h2>
+                    <button class="btn-primary" id="standalone-add-btn" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;"><i class="ri-add-line"></i> Add New Movie</button>
+                </div>
+                
+                <div class="admin-preview" style="margin-top: 2rem;">
+                    <div class="stat-card">
+                        <div class="stat-icon pink-glow"><i class="ri-money-dollar-circle-line"></i></div>
+                        <div class="stat-info">
+                            <h4>Total Revenue</h4>
+                            <h2 style="color: white;">$45,231</h2>
+                            <span class="trend positive"><i class="ri-arrow-up-line"></i> 12.5%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue-glow"><i class="ri-ticket-line"></i></div>
+                        <div class="stat-info">
+                            <h4>Tickets Sold</h4>
+                            <h2 style="color: white;">1,245</h2>
+                            <span class="trend positive"><i class="ri-arrow-up-line"></i> 8.2%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple-glow"><i class="ri-film-line"></i></div>
+                        <div class="stat-info">
+                            <h4>Active Movies</h4>
+                            <h2 style="color: white;" id="active-movies-count">12</h2>
+                            <span class="trend neutral"><i class="ri-subtract-line"></i> Live</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange-glow"><i class="ri-user-star-line"></i></div>
+                        <div class="stat-info">
+                            <h4>New Users</h4>
+                            <h2 style="color: white;">342</h2>
+                            <span class="trend positive"><i class="ri-arrow-up-line"></i> 24.1%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-table-container">
+                    <h3 style="color: white;">Current Movies Catalog</h3>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Movie</th>
+                                <th>Genre</th>
+                                <th>Rating</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="standalone-movie-list">
+                            <!-- Injected dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Movie Modal (Add / Edit) -->
+    <div class="modal-overlay" id="standalone-modal">
+        <div class="modal-content glass-card" style="max-width: 500px;">
+            <button class="close-modal" id="standalone-close-modal"><i class="ri-close-line"></i></button>
+            <div class="modal-header">
+                <h2 id="standalone-modal-title" style="color: white;">Add New Movie</h2>
+                <p>Fill in the details to list a new cinematic experience</p>
+            </div>
+            <form class="movie-form" id="standalone-form" onsubmit="event.preventDefault();">
+                <input type="hidden" id="standalone-edit-index">
+                <div class="input-group">
+                    <label>Movie Title</label>
+                    <input type="text" id="standalone-title" placeholder="e.g. Cyberpunk 2077" required>
+                </div>
+                <div class="input-group">
+                    <label>Poster Image URL</label>
+                    <input type="url" id="standalone-image" placeholder="https://..." required>
+                </div>
+                <div class="input-group">
+                    <label>Genre</label>
+                    <input type="text" id="standalone-genre" placeholder="e.g. Action, Sci-Fi" required>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <div class="input-group" style="flex: 1;">
+                        <label>Rating</label>
+                        <input type="text" id="standalone-rating" placeholder="e.g. 8.5" required>
+                    </div>
+                    <div class="input-group" style="flex: 1;">
+                        <label>Status</label>
+                        <select id="standalone-status" class="custom-select" style="padding: 0.8rem 1rem; border-radius: 8px;">
+                            <option value="Showing">Showing</option>
+                            <option value="Upcoming">Upcoming</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary w-100" style="justify-content: center; margin-top: 1rem;">Save Movie</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const INITIAL_MOVIES = [
+            {
+                title: "Cyberpunk 2077",
+                image: "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2070&auto=format&fit=crop",
+                genre: "Action, Sci-Fi",
+                rating: "4.8",
+                status: "Showing"
+            },
+            {
+                title: "The Dark Web",
+                image: "https://images.unsplash.com/photo-1611416517780-eff3a13b0359?q=80&w=1949&auto=format&fit=crop",
+                genre: "Thriller, Action",
+                rating: "8.5",
+                status: "Showing"
+            },
+            {
+                title: "Interstellar Journey",
+                image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1925&auto=format&fit=crop",
+                genre: "Sci-Fi, Adventure",
+                rating: "9.1",
+                status: "Showing"
+            },
+            {
+                title: "Neon City",
+                image: "https://images.unsplash.com/photo-1596727147705-61a532a659bd?q=80&w=1974&auto=format&fit=crop",
+                genre: "Action, Cyberpunk",
+                rating: "7.8",
+                status: "Showing"
+            },
+            {
+                title: "Cosmic Wars",
+                image: "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=1974&auto=format&fit=crop",
+                genre: "Sci-Fi, Action",
+                rating: "8.2",
+                status: "Upcoming"
+            },
+            {
+                title: "Virtual Reality",
+                image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1994&auto=format&fit=crop",
+                genre: "Sci-Fi, Thriller",
+                rating: "8.7",
+                status: "Showing"
+            },
+            {
+                title: "Matrix Awakening",
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop",
+                genre: "Sci-Fi, Cyberpunk",
+                rating: "8.9",
+                status: "Showing"
+            },
+            {
+                title: "Blade Runner 2099",
+                image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1974&auto=format&fit=crop",
+                genre: "Action, Sci-Fi",
+                rating: "9.3",
+                status: "Showing"
+            },
+            {
+                title: "Silent Horizon",
+                image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1947&auto=format&fit=crop",
+                genre: "Horror, Mystery",
+                rating: "7.5",
+                status: "Showing"
+            },
+            {
+                title: "Galactic Comedy",
+                image: "https://images.unsplash.com/photo-1514306191717-452ec28c7814?q=80&w=2069&auto=format&fit=crop",
+                genre: "Comedy, Adventure",
+                rating: "8.1",
+                status: "Showing"
+            },
+            {
+                title: "Chrono Paradox",
+                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
+                genre: "Sci-Fi, Thriller",
+                rating: "8.6",
+                status: "Upcoming"
+            },
+            {
+                title: "Cyber Samurai",
+                image: "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=2070&auto=format&fit=crop",
+                genre: "Action, Fantasy",
+                rating: "8.8",
+                status: "Showing"
+            }
+        ];
+
+        function getAdminMovies() {
+            const stored = localStorage.getItem('tickety_movies');
+            if (!stored) {
+                localStorage.setItem('tickety_movies', JSON.stringify(INITIAL_MOVIES));
+                return INITIAL_MOVIES;
+            }
+            const parsed = JSON.parse(stored);
+            if (parsed.length < INITIAL_MOVIES.length) {
+                localStorage.setItem('tickety_movies', JSON.stringify(INITIAL_MOVIES));
+                return INITIAL_MOVIES;
+            }
+            return parsed;
+        }
+
+        function saveAdminMovies(movies) {
+            localStorage.setItem('tickety_movies', JSON.stringify(movies));
+        }
+
+        function renderStandaloneTable() {
+            const tbody = document.getElementById('standalone-movie-list');
+            if (!tbody) return;
+
+            const movies = getAdminMovies();
+            tbody.innerHTML = '';
+
+            let activeCount = 0;
+            movies.forEach((m, idx) => {
+                if (m.status === 'Showing') activeCount++;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>
+                        <div class="table-movie">
+                            <img src="${m.image}" alt="${m.title}" onerror="this.src='https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop'">
+                            <span style="color: white; font-weight: 500;">${m.title}</span>
+                        </div>
+                    </td>
+                    <td style="color: var(--text-secondary);">${m.genre}</td>
+                    <td><i class="ri-star-fill text-yellow"></i> ${m.rating}</td>
+                    <td><span class="status ${m.status === 'Showing' ? 'active' : 'inactive'}">${m.status}</span></td>
+                    <td>
+                        <button class="action-btn edit" onclick="editStandaloneMovie(${idx})"><i class="ri-edit-line"></i></button>
+                        <button class="action-btn delete" onclick="deleteStandaloneMovie(${idx})"><i class="ri-delete-bin-line"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('active-movies-count').innerText = activeCount;
+        }
+
+        window.editStandaloneMovie = function(idx) {
+            const movies = getAdminMovies();
+            const m = movies[idx];
+            if (!m) return;
+
+            document.getElementById('standalone-modal-title').innerText = "Edit Movie";
+            document.getElementById('standalone-edit-index').value = idx;
+            document.getElementById('standalone-title').value = m.title;
+            document.getElementById('standalone-image').value = m.image;
+            document.getElementById('standalone-genre').value = m.genre;
+            document.getElementById('standalone-rating').value = m.rating;
+            document.getElementById('standalone-status').value = m.status;
+
+            document.getElementById('standalone-modal').classList.add('active');
+        };
+
+        window.deleteStandaloneMovie = function(idx) {
+            if (confirm("Are you sure you want to delete this movie from the system?")) {
+                const movies = getAdminMovies();
+                movies.splice(idx, 1);
+                saveAdminMovies(movies);
+                renderStandaloneTable();
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderStandaloneTable();
+
+            const addBtn = document.getElementById('standalone-add-btn');
+            const modal = document.getElementById('standalone-modal');
+            const closeBtn = document.getElementById('standalone-close-modal');
+            const form = document.getElementById('standalone-form');
+
+            addBtn.addEventListener('click', () => {
+                document.getElementById('standalone-modal-title').innerText = "Add New Movie";
+                form.reset();
+                document.getElementById('standalone-edit-index').value = '';
+                modal.classList.add('active');
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const index = document.getElementById('standalone-edit-index').value;
+                const title = document.getElementById('standalone-title').value;
+                const image = document.getElementById('standalone-image').value;
+                const genre = document.getElementById('standalone-genre').value;
+                const rating = document.getElementById('standalone-rating').value;
+                const status = document.getElementById('standalone-status').value;
+
+                const movies = getAdminMovies();
+                if (index === '') {
+                    movies.unshift({ title, image, genre, rating, status });
+                    alert("New movie successfully added!");
+                } else {
+                    movies[index] = { title, image, genre, rating, status };
+                    alert("Movie successfully updated!");
+                }
+                saveAdminMovies(movies);
+                modal.classList.remove('active');
+                renderStandaloneTable();
+            });
+        });
+    </script>
+</body>
+</html>
